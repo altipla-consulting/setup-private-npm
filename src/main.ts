@@ -25,6 +25,11 @@ async function main(): Promise<void> {
     lines.push(`always-auth=true`)
   }
 
+  if (process.env.NPM_TOKEN) {
+    console.log('* Configure NPM')
+    lines.push(`//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`)
+  }
+
   lines.push('git-tag-version=false')
   
   console.log('* Write .npmrc')
