@@ -29,11 +29,13 @@ async function main(): Promise<void> {
     console.log('* Configure NPM')
     lines.push(`//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`)
   }
-
-  lines.push('git-tag-version=false')
   
-  console.log('* Write .npmrc')
-  fs.writeFileSync(npmrc, lines.join(os.EOL), 'utf-8')
+  if (lines.length) {
+    lines.push('git-tag-version=false')
+
+    console.log('* Write .npmrc')
+    fs.writeFileSync(npmrc, lines.join(os.EOL), 'utf-8')
+  }
 }
 
 main()
