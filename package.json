@@ -10,7 +10,7 @@
     "prepublishOnly": "ncc build src/main.ts"
   },
   "bin": {
-    "setup-private-npm": "bin/index.js"
+    "setup-private-npm": "bin/setup-private-npm"
   },
   "repository": {
     "type": "git",
